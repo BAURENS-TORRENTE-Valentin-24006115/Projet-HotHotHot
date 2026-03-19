@@ -25,10 +25,10 @@
         </div>
     </div>
 
-    <script src="/assets_/js/Temperature.js"></script>
-    <script src="/assets_/js/Display.js"></script>
-    <script src="/assets_/js/History.js"></script>
-    <script src="/assets_/js/Alert.js"></script>
-    <script src="/assets_/js/Main.js" ></script>
-    <script src="/assets_/js/TabsManual.js" ></script>
+    <script src="/models/Temperature.js"></script>
+    <script src="/controllers/Display.js"></script>
+    <script src="/controllers/History.js"></script>
+    <script src="/controllers/Alert.js"></script>
+    <script src="/Main.js" ></script>
+    <script src="/controllers/TabsManual.js" ></script>
 </body>
