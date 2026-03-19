@@ -1,0 +1,457 @@
+Index: controllers/Alert.js
+===================================================================
+diff --git a/controllers/Alert.js b/controllers/Alert.js
+deleted file mode 100644
+--- a/controllers/Alert.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,17 +0,0 @@
+-class Alert
+-{
+-    update(I_temperature)
+-    {
+-        let S_message = "";
+-        if (I_temperature < 0)
+-        {
+-            S_message = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
+-        } else if (I_temperature > 30)
+-        {
+-            S_message = "Caliente ! Vamos a la playa, ho hoho hoho !!";
+-        }
+-
+-        document.getElementById("message").textContent = S_message;
+-    }
+-
+-}
+\ No newline at end of file
+Index: Main.js
+===================================================================
+diff --git a/Main.js b/Main.js
+deleted file mode 100644
+--- a/Main.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,22 +0,0 @@
+-let O_capteur = new Temperature(20);
+-let O_tempDisplay = new Display();
+-let O_tempHistory = new History();
+-let O_tempAlert = new Alert();
+-
+-O_capteur.addObserver(O_tempDisplay);
+-O_capteur.addObserver(O_tempHistory);
+-O_capteur.addObserver(O_tempAlert);
+-
+-O_capteur.getTemperatureArray();
+-O_capteur.getTemperature();
+-
+-let N_timer = setInterval(O_capteur.setNextTemperature.bind(O_capteur), 2000);
+-
+-'use strict';
+-
+-window.addEventListener('load', function () {
+-    const A_tablists = document.querySelectorAll('[role=tablist].manual');
+-    for (let I_i = 0; I_i < A_tablists.length; I_i++) {
+-        new TabsManual(A_tablists[I_i]);
+-    }
+-});
+\ No newline at end of file
+Index: controllers/History.js
+===================================================================
+diff --git a/controllers/History.js b/controllers/History.js
+deleted file mode 100644
+--- a/controllers/History.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,7 +0,0 @@
+-class History
+-{
+-    update(I_temperature)
+-    {
+-        document.getElementById("tabpanel-2").appendChild(document.createElement("p")).textContent = I_temperature + "°C";
+-    }
+-}
+\ No newline at end of file
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Projet-HotHotHot.iml" filepath="$PROJECT_DIR$/.idea/Projet-HotHotHot.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/Projet-HotHotHot.iml
+===================================================================
+diff --git a/.idea/Projet-HotHotHot.iml b/.idea/Projet-HotHotHot.iml
+deleted file mode 100644
+--- a/.idea/Projet-HotHotHot.iml	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: models/Temperature.js
+===================================================================
+diff --git a/models/Temperature.js b/models/Temperature.js
+deleted file mode 100644
+--- a/models/Temperature.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,77 +0,0 @@
+-
+-class Temperature
+-{
+-    I_temperature;
+-    A_tempArray = [];
+-    I_index = 0;
+-    A_observers = [];
+-
+-    constructor(I_qty) {
+-        this.setTemperatureArray(I_qty)
+-    }
+-
+-    getTemperatureArray()
+-    {
+-        return this.A_tempArray
+-    }
+-
+-    setTemperatureArray(I_qty)
+-    {
+-        for (let I_i = 0; I_i < I_qty; I_i++)
+-        {
+-            this.A_tempArray.push(Math.floor(Math.random() * 50) - 10);
+-        }
+-    }
+-
+-    getTemperature()
+-    {
+-        return this.I_temperature;
+-    }
+-
+-    setNextTemperature()
+-    {
+-        console.log(this);
+-        if (this.I_index <= this.getTemperatureArray().length - 1)
+-        {
+-            this.I_temperature = this.getTemperatureArray()[this.I_index];
+-            this.I_index++
+-            this.notify();
+-            if (this.I_index === this.getTemperatureArray().length)
+-            {
+-                clearInterval(N_timer);
+-            }
+-        }
+-    }
+-
+-    getObservers()
+-    {
+-        return this.A_observers;
+-    }
+-
+-    addObserver(observer)
+-    {
+-        this.A_observers.push(observer);
+-    }
+-
+-    removeObserver(observer)
+-    {
+-        let I_index = 0;
+-        for (let currentObserver of this.getObservers())
+-        {
+-            if (currentObserver === observer)
+-            {
+-                this.getObservers().splice(I_index, 1);
+-            }
+-
+-            I_index++;
+-        }
+-    }
+-
+-    notify()
+-    {
+-        for (let observer of this.getObservers())
+-        {
+-            observer.update(this.getTemperature());
+-        }
+-    }
+-}
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: controllers/Display.js
+===================================================================
+diff --git a/controllers/Display.js b/controllers/Display.js
+deleted file mode 100644
+--- a/controllers/Display.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,30 +0,0 @@
+-class Display
+-{
+-    I_tempValue = document.getElementById("value");
+-
+-    getTempValue()
+-    {
+-        return this.I_tempValue;
+-    }
+-
+-    update(I_temperature)
+-    {
+-        this.getTempValue().textContent = I_temperature + "°C";
+-
+-        let S_color;
+-        if (I_temperature <= 0)
+-        {
+-            S_color = "blue";
+-        } else if (I_temperature <= 20)
+-        {
+-            S_color = "green";
+-        } else if (I_temperature <= 30)
+-        {
+-            S_color = "orange";
+-        } else
+-        {
+-            S_color = "red";
+-        }
+-        this.I_tempValue.setAttribute("class", S_color);
+-    }
+-}
+\ No newline at end of file
+Index: controllers/TabsManual.js
+===================================================================
+diff --git a/controllers/TabsManual.js b/controllers/TabsManual.js
+deleted file mode 100644
+--- a/controllers/TabsManual.js	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ /dev/null	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
+@@ -1,116 +0,0 @@
+-class TabsManual {
+-    constructor(groupNode) {
+-        this.A_tablistNode = groupNode;
+-
+-        this.A_tabs = [];
+-
+-        this.A_firstTab = null;
+-        this.A_lastTab = null;
+-
+-        this.A_tabs = Array.from(this.A_tablistNode.querySelectorAll('[role=tab]'));
+-        this.A_tabpanels = [];
+-
+-        for (let I_i = 0; I_i < this.A_tabs.length; I_i += 1) {
+-            const A_tab = this.A_tabs[I_i];
+-            const A_tabpanel = document.getElementById(A_tab.getAttribute('aria-controls'));
+-
+-            A_tab.tabIndex = -1;
+-            A_tab.setAttribute('aria-selected', 'false');
+-            this.A_tabpanels.push(A_tabpanel);
+-
+-            A_tab.addEventListener('keydown', this.onKeydown.bind(this));
+-            A_tab.addEventListener('click', this.onClick.bind(this));
+-
+-            if (!this.A_firstTab) {
+-                this.A_firstTab = A_tab;
+-            }
+-            this.A_lastTab = A_tab;
+-        }
+-
+-        this.setSelectedTab(this.A_firstTab);
+-    }
+-
+-    setSelectedTab(A_currentTab) {
+-        for (let I_i = 0; I_i < this.A_tabs.length; I_i += 1) {
+-            const A_tab = this.A_tabs[I_i];
+-            if (A_currentTab === A_tab) {
+-                A_tab.setAttribute('aria-selected', 'true');
+-                A_tab.removeAttribute('tabindex');
+-                this.A_tabpanels[I_i].classList.remove('is-hidden');
+-            } else {
+-                A_tab.setAttribute('aria-selected', 'false');
+-                A_tab.tabIndex = -1;
+-                this.A_tabpanels[I_i].classList.add('is-hidden');
+-            }
+-        }
+-    }
+-
+-    moveFocusToTab(A_currentTab) {
+-        A_currentTab.focus();
+-    }
+-
+-    moveFocusToPreviousTab(A_currentTab) {
+-        let I_index;
+-
+-        if (A_currentTab === this.A_firstTab) {
+-            this.moveFocusToTab(this.A_lastTab);
+-        } else {
+-            I_index = this.A_tabs.indexOf(A_currentTab);
+-            this.moveFocusToTab(this.A_tabs[I_index - 1]);
+-        }
+-    }
+-
+-    moveFocusToNextTab(A_currentTab) {
+-        let I_index;
+-
+-        if (A_currentTab === this.A_lastTab) {
+-            this.moveFocusToTab(this.A_firstTab);
+-        } else {
+-            I_index = this.A_tabs.indexOf(A_currentTab);
+-            this.moveFocusToTab(this.A_tabs[I_index + 1]);
+-        }
+-    }
+-
+-    /* EVENT HANDLERS */
+-
+-    onKeydown(O_event) {
+-        let O_tgt = O_event.currentTarget,
+-            B_flag = false;
+-
+-        switch (O_event.key) {
+-            case 'ArrowLeft':
+-                this.moveFocusToPreviousTab(O_tgt);
+-                B_flag = true;
+-                break;
+-
+-            case 'ArrowRight':
+-                this.moveFocusToNextTab(O_tgt);
+-                B_flag = true;
+-                break;
+-
+-            case 'Home':
+-                this.moveFocusToTab(this.A_firstTab);
+-                B_flag = true;
+-                break;
+-
+-            case 'End':
+-                this.moveFocusToTab(this.A_lastTab);
+-                B_flag = true;
+-                break;
+-
+-            default:
+-                break;
+-        }
+-
+-        if (B_flag) {
+-            O_event.stopPropagation();
+-            O_event.preventDefault();
+-        }
+-    }
+-
+-    // Since this example uses buttons for the tabs, the click onr also is activated
+-    // with the space and enter keys
+-    onClick(O_event) {
+-        this.setSelectedTab(O_event.currentTarget);
+-    }
+-}
+\ No newline at end of file
+Index: .idea/php.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"MessDetectorOptionsConfiguration\">\r\n    <option name=\"transferred\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PHPCSFixerOptionsConfiguration\">\r\n    <option name=\"transferred\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PHPCodeSnifferOptionsConfiguration\">\r\n    <option name=\"highlightLevel\" value=\"WARNING\" />\r\n    <option name=\"transferred\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PhpCodeSniffer\">\r\n    <phpcs_settings>\r\n      <phpcs_by_interpreter asDefaultInterpreter=\"true\" interpreter_id=\"4bcf467d-8204-4a92-afd4-ee243f4a631e\" timeout=\"30000\" />\r\n    </phpcs_settings>\r\n  </component>\r\n  <component name=\"PhpStan\">\r\n    <PhpStan_settings>\r\n      <phpstan_by_interpreter asDefaultInterpreter=\"true\" interpreter_id=\"4bcf467d-8204-4a92-afd4-ee243f4a631e\" timeout=\"60000\" />\r\n    </PhpStan_settings>\r\n  </component>\r\n  <component name=\"PhpStanOptionsConfiguration\">\r\n    <option name=\"transferred\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PsalmOptionsConfiguration\">\r\n    <option name=\"transferred\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/php.xml b/.idea/php.xml
+--- a/.idea/php.xml	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ b/.idea/php.xml	(date 1773917956131)
+@@ -10,16 +10,6 @@
+     <option name="highlightLevel" value="WARNING" />
+     <option name="transferred" value="true" />
+   </component>
+-  <component name="PhpCodeSniffer">
+-    <phpcs_settings>
+-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="4bcf467d-8204-4a92-afd4-ee243f4a631e" timeout="30000" />
+-    </phpcs_settings>
+-  </component>
+-  <component name="PhpStan">
+-    <PhpStan_settings>
+-      <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="4bcf467d-8204-4a92-afd4-ee243f4a631e" timeout="60000" />
+-    </PhpStan_settings>
+-  </component>
+   <component name="PhpStanOptionsConfiguration">
+     <option name="transferred" value="true" />
+   </component>
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ b/.idea/vcs.xml	(date 1773917956135)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><head>\r\n    <link rel=\"stylesheet\" href=\"/assets_/css/TD2CompWeb.css\">\r\n    <title>Capteur</title>\r\n</head>\r\n<body>\r\n    <h1>Température</h1>\r\n    <div class=\"tabs\">\r\n        <div role=\"tablist\" aria-labelledby=\"tablist-1\" class=\"manual\">\r\n            <button id=\"tab-1\" type=\"button\" role=\"tab\" aria-selected=\"true\" aria-controls=\"tabpanel-1\">\r\n                <span class=\"focus\">Actuelle</span>\r\n            </button>\r\n            <button id=\"tab-2\" type=\"button\" role=\"tab\" aria-selected=\"false\" aria-controls=\"tabpanel-2\" tabindex=\"-1\">\r\n                <span class=\"focus\">Historique</span>\r\n            </button>\r\n        </div>\r\n\r\n        <div id=\"tabpanel-1\" role=\"tabpanel\" aria-labelledby=\"tab-1\">\r\n            <section>\r\n                <p id=\"value\" aria-live=\"assertive\"></p>\r\n                <p id=\"message\" role=\"alert\"></p>\r\n            </section>\r\n        </div>\r\n        <div id=\"tabpanel-2\" role=\"tabpanel\" aria-labelledby=\"tab-2\" class=\"is-hidden\">\r\n\r\n        </div>\r\n    </div>\r\n\r\n    <script src=\"/models/Temperature.js\"></script>\r\n    <script src=\"/controllers/Display.js\"></script>\r\n    <script src=\"/controllers/History.js\"></script>\r\n    <script src=\"/controllers/Alert.js\"></script>\r\n    <script src=\"/Main.js\" ></script>\r\n    <script src=\"/controllers/TabsManual.js\" ></script>\r\n</body>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ b/index.php	(date 1773917956137)
+@@ -25,10 +25,10 @@
+         </div>
+     </div>
+ 
+-    <script src="/models/Temperature.js"></script>
+-    <script src="/controllers/Display.js"></script>
+-    <script src="/controllers/History.js"></script>
+-    <script src="/controllers/Alert.js"></script>
+-    <script src="/Main.js" ></script>
+-    <script src="/controllers/TabsManual.js" ></script>
++    <script src="/assets_/js/Temperature.js"></script>
++    <script src="/assets_/js/Display.js"></script>
++    <script src="/assets_/js/History.js"></script>
++    <script src="/assets_/js/Alert.js"></script>
++    <script src="/assets_/js/Main.js" ></script>
++    <script src="/assets_/js/TabsManual.js" ></script>
+ </body>
+\ No newline at end of file
+Index: assets_/css/TD2CompWeb.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.blue {\r\n    border: 2px solid blue;\r\n}\r\n\r\n.green {\r\n    border: 2px solid green;\r\n}\r\n\r\n.orange {\r\n    border: 2px solid orange;\r\n}\r\n\r\n.red {\r\n    border: 2px solid red;\r\n}\r\n\r\n.tabs {\r\n    font-family: \"lucida grande\", sans-serif;\r\n}\r\n\r\n[role=\"tablist\"] {\r\n    min-width: 100%;\r\n}\r\n\r\n[role=\"tab\"],\r\n[role=\"tab\"]:focus,\r\n[role=\"tab\"]:hover {\r\n    display: inline-block;\r\n    position: relative;\r\n    z-index: 2;\r\n    top: 2px;\r\n    margin: 4px 0 0;\r\n    padding: 3px 3px 4px;\r\n    border: 1px solid hsl(219deg 1% 72%);\r\n    border-bottom: 2px solid hsl(219deg 1% 72%);\r\n    border-radius: 5px 5px 0 0;\r\n    background: hsl(220deg 20% 94%);\r\n    outline: none;\r\n    font-weight: bold;\r\n    max-width: 22%;\r\n    overflow: hidden;\r\n    text-align: left;\r\n    cursor: pointer;\r\n}\r\n\r\n[role=\"tab\"][aria-selected=\"true\"] {\r\n    padding: 2px 2px 4px;\r\n    margin-top: 0;\r\n    border-width: 2px;\r\n    border-top-width: 6px;\r\n    border-top-color: rgb(36 116 214);\r\n    border-bottom-color: hsl(220deg 43% 99%);\r\n    background: hsl(220deg 43% 99%);\r\n}\r\n\r\n[role=\"tab\"][aria-selected=\"false\"] {\r\n    border-bottom: 1px solid hsl(219deg 1% 72%);\r\n}\r\n\r\n[role=\"tab\"] span.focus {\r\n    display: inline-block;\r\n    margin: 2px;\r\n    padding: 4px 6px;\r\n}\r\n\r\n[role=\"tab\"]:hover span.focus,\r\n[role=\"tab\"]:focus span.focus,\r\n[role=\"tab\"]:active span.focus {\r\n    padding: 2px 4px;\r\n    border: 2px solid rgb(36 116 214);\r\n    border-radius: 3px;\r\n}\r\n\r\n[role=\"tabpanel\"] {\r\n    padding: 5px;\r\n    border: 2px solid hsl(219deg 1% 72%);\r\n    border-radius: 0 5px 5px;\r\n    background: hsl(220deg 43% 99%);\r\n    min-height: 10em;\r\n    width: 100%;\r\n    overflow: auto;\r\n}\r\n\r\n[role=\"tabpanel\"].is-hidden {\r\n    display: none;\r\n}\r\n\r\n[role=\"tabpanel\"] p {\r\n    margin: 0;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/assets_/css/TD2CompWeb.css b/assets_/css/TD2CompWeb.css
+--- a/assets_/css/TD2CompWeb.css	(revision a516e4dd64f319de5860f408f6aaa9cef1650cd8)
++++ b/assets_/css/TD2CompWeb.css	(date 1773917956141)
+@@ -29,7 +29,8 @@
+     position: relative;
+     z-index: 2;
+     top: 2px;
+-    margin: 4px 0 0;
++    margin: 0;
++    margin-top: 4px;
+     padding: 3px 3px 4px;
+     border: 1px solid hsl(219deg 1% 72%);
+     border-bottom: 2px solid hsl(219deg 1% 72%);
