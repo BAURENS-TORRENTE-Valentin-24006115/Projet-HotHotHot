@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="../css/TD2CompWeb.css">
+    <link rel="stylesheet" href="css/TD2CompWeb.css">
     <title>Capteur</title>
 </head>
 <body>
@@ -25,10 +25,10 @@
         </div>
     </div>
 
-    <script src="../js/Temperature.js"></script>
-    <script src="../js/Display.js"></script>
-    <script src="../js/History.js"></script>
-    <script src="../js/Alert.js"></script>
-    <script src="../js/Main.js" ></script>
-    <script src="../js/TabsManual.js" ></script>
+    <script src="js/Temperature.js"></script>
+    <script src="js/Display.js"></script>
+    <script src="js/History.js"></script>
+    <script src="js/Alert.js"></script>
+    <script src="js/Main.js" ></script>
+    <script src="js/TabsManual.js" ></script>
 </body>
