@@ -55,8 +55,15 @@
                 <div id="alert-zone" aria-live="assertive"></div>
             </div>
 
-            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
-            </div>
+        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+            <p>Aujourd'hui :</p>
+            <p id="min" aria-live="assertive">Temp min :</p>
+            <p id="max" aria-live="assertive">Temp max :</p>
+            <br>
+            <p>Tout :</p>
+        </div>
+
+    </div>
 
         </div>
     </main>
@@ -64,6 +71,8 @@
     <script src="/controllers/Display.js"></script>
     <script src="/controllers/History.js"></script>
     <script src="/controllers/Alert.js"></script>
-    <script src="/Main.js" ></script>
-    <script src="/controllers/TabsManual.js" ></script>
+    <script src="controllers/MinMax.js"></script>
+
+    <script src="/Main.js"></script>
+    <script src="/controllers/TabsManual.js"></script>
 </body>
