@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="/assets_/css/TD2CompWeb.css">
     <title>Capteur</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 <header class="nav-container">
@@ -59,6 +60,7 @@
             <p>Aujourd'hui :</p>
             <p id="min" aria-live="assertive">Temp min :</p>
             <p id="max" aria-live="assertive">Temp max :</p>
+            <canvas id="donutChart" style="width:100%;max-width:700px"></canvas>
             <br>
             <p>Tout :</p>
         </div>
@@ -72,7 +74,7 @@
     <script src="/controllers/History.js"></script>
     <script src="/controllers/Alert.js"></script>
     <script src="controllers/MinMax.js"></script>
-
-    <script src="/Main.js"></script>
-    <script src="/controllers/TabsManual.js"></script>
+    <script src="/controllers/DonutGraph.js"></script>
+    <script src="/Main.js" ></script>
+    <script src="/controllers/TabsManual.js" ></script>
 </body>

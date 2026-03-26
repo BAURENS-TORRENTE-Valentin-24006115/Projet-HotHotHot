@@ -2,11 +2,13 @@ let O_capteur = new Temperature(20);
 let O_tempDisplay = new Display();
 let O_tempHistory = new History();
 let O_tempAlert = new Alert();
+let O_DonutGraph = new DonutGraph();
 let O_tempMinMax = new MinMax();
 
 O_capteur.addObserver(O_tempDisplay);
 O_capteur.addObserver(O_tempHistory);
 O_capteur.addObserver(O_tempAlert);
+O_capteur.addObserver(O_DonutGraph);
 O_capteur.addObserver(O_tempMinMax);
 
 let N_timer = setInterval(O_capteur.setNextTemperature.bind(O_capteur), 2000);

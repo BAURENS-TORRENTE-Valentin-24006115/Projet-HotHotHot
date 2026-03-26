@@ -30,19 +30,6 @@
     <option name="NEW_BASE" value="dev" />
   </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="dev" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="dev" />
@@ -83,6 +70,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "graphe",
     "git-widget-placeholder": "minMax",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
@@ -249,6 +237,8 @@
     <MESSAGE value="Base project upload" />
     <MESSAGE value="Fix: Naming conventions&#10;Fix: Architecture" />
     <MESSAGE value="Fix: Missing Files" />
+    <MESSAGE value="workspace update" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace update" />
     <MESSAGE value="FIX: Restructured HTML" />
     <option name="LAST_COMMIT_MESSAGE" value="FIX: Restructured HTML" />
   </component>
