@@ -3,6 +3,13 @@
     <title>Capteur</title>
 </head>
 <body>
+<header class="nav-container">
+    <nav class="nav">
+        <a href="index.php">Accueil</a>
+        <a href="#">Documentation</a>
+
+    </nav>
+</header>
     <h1>Température</h1>
     <div class="tabs">
         <div role="tablist" aria-labelledby="tablist-1" class="manual">
