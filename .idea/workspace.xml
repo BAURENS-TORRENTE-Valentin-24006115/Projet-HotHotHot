@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41c9ddc7-6b39-4fa0-8e9a-f9626c79146e" name="Changes" comment="FIX: Restructured HTML">
-      <change afterPath="$PROJECT_DIR$/controllers/MinMax.js" afterDir="false" />
+    <list default="true" id="41c9ddc7-6b39-4fa0-8e9a-f9626c79146e" name="Changes" comment="FEAT: Add graph">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_03_2026_10_41_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_03_2026_10_41__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_03_2026_10_54_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_03_2026_10_54__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Temperature.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Temperature.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,15 +71,14 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "graphe",
-    "git-widget-placeholder": "minMax",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.selected.configurable": "web.server",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -114,6 +114,7 @@
       <workItem from="1773917477612" duration="1067000" />
       <workItem from="1773918558799" duration="243000" />
       <workItem from="1774509587473" duration="3604000" />
+      <workItem from="1774520074789" duration="2244000" />
     </task>
     <task id="LOCAL-00001" summary="Base project upload">
       <option name="closed" value="true" />
@@ -238,9 +239,8 @@
     <MESSAGE value="Fix: Naming conventions&#10;Fix: Architecture" />
     <MESSAGE value="Fix: Missing Files" />
     <MESSAGE value="workspace update" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace update" />
     <MESSAGE value="FIX: Restructured HTML" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX: Restructured HTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,7 @@ class MinMax
 {
     I_min = null;
     I_max = null;
+    I_temperature;
 
     getMin() {
         return this.I_min;
@@ -27,18 +28,20 @@ class MinMax
         }
     }
 
-    update(I_temperature)
+    update(data)
     {
-        if (this.getMin() === null || I_temperature < this.getMin())
+        this.I_temperature = data.valeur
+
+        if (this.getMin() === null || this.I_temperature < this.getMin())
         {
-            this.setMin(I_temperature);
-            this.updateTemp(I_temperature, true);
+            this.setMin(this.I_temperature);
+            this.updateTemp(this.I_temperature, true);
         }
 
-        if (this.getMax() === null || I_temperature > this.getMax())
+        if (this.getMax() === null || this.I_temperature > this.getMax())
         {
-            this.setMax(I_temperature);
-            this.updateTemp(I_temperature, false);
+            this.setMax(this.I_temperature);
+            this.updateTemp(this.I_temperature, false);
         }
     }
 }

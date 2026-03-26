@@ -3,6 +3,7 @@ class DonutGraph {
     A_tempColors = ["#0000FF", "#008000", "#FFA500", "#FF0000"];
     A_tempClassValues = [0, 0, 0, 0];
     donutChart = null;
+    I_temperature;
 
     updateGraph() {
         if (this.donutChart) {
@@ -27,14 +28,15 @@ class DonutGraph {
         }
     }
 
-    update(I_temperature) {
-        if (I_temperature <= 0)
+    update(data) {
+        this.I_temperature = data.valeur
+        if (this.I_temperature <= 0)
         {
             this.A_tempClassValues[0]++;
-        } else if (I_temperature <= 20)
+        } else if (this.I_temperature <= 20)
         {
             this.A_tempClassValues[1]++;
-        } else if (I_temperature <= 30)
+        } else if (this.I_temperature <= 30)
         {
             this.A_tempClassValues[2]++;
         } else
