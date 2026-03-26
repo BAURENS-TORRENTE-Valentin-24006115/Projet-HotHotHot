@@ -1,3 +1,5 @@
+'use strict';
+
 let O_capteur = new Temperature(20);
 let O_tempDisplay = new Display();
 let O_tempHistory = new History();
@@ -12,7 +14,12 @@ O_capteur.getTemperature();
 
 let N_timer = setInterval(O_capteur.setNextTemperature.bind(O_capteur), 2000);
 
-'use strict';
+Notification.requestPermission().then(function(permission) {
+    if (permission === 'granted') {
+    } else {
+        console.log("La permission a été refusée ou non définie");
+    }
+});
 
 window.addEventListener('load', function () {
     const A_tablists = document.querySelectorAll('[role=tablist].manual');
