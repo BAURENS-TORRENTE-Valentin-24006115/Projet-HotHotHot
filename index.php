@@ -10,6 +10,8 @@
 
     </nav>
 </header>
+    <div id="toast-container"></div>
+
     <h1>Température</h1>
 
     <div class="tabs">
