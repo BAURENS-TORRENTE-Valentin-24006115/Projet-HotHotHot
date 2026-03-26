@@ -7,35 +7,59 @@
     <nav class="nav">
         <a href="index.php">Accueil</a>
         <a href="#">Documentation</a>
-
+        <a href="#">Mon compte</a>
+        <a href="#">Déconnexion</a>
     </nav>
 </header>
-    <h1>Température</h1>
+    <main>
+        <h1>Tableau de bord</h1>
 
-    <div class="tabs">
+        <div class="tabs">
+            <div role="tablist" aria-labelledby="tablist-1" class="manual">
+                <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                    <span class="focus">Temps réels</span>
+                </button>
+                <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
+                    <span class="focus">Historique</span>
+                </button>
+            </div>
 
-        <div role="tablist" aria-labelledby="tablist-1" class="manual">
-            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
-                <span class="focus">Actuelle</span>
-            </button>
+            <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="container-temps-reel">
 
-            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
-                <span class="focus">Historique</span>
-            </button>
+                    <section class="colonne-capteur" id="zone-exterieur">
+                        <h2 class="titre-capteur">Extérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-ext-val">--</span>
+                            <span class="unite">°C</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="temp-ext-min">--</b>°C</span>
+                            <span>Max: <b id="temp-ext-max">--</b>°C</span>
+                        </div>
+                    </section>
+
+                    <section class="colonne-capteur" id="zone-interieur">
+                        <h2 class="titre-capteur">Intérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-int-val">--</span>
+                            <span class="unite">°C</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="temp-int-min">--</b>°C</span>
+                            <span>Max: <b id="temp-int-max">--</b>°C</span>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="alert-zone" aria-live="assertive"></div>
+            </div>
+
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+            </div>
+
         </div>
-
-        <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
-            <section>
-                <p id="value" aria-live="assertive"></p>
-                <p id="message" role="alert"></p>
-            </section>
-        </div>
-
-        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
-        </div>
-
-    </div>
-
+    </main>
     <script src="/models/Temperature.js"></script>
     <script src="/controllers/Display.js"></script>
     <script src="/controllers/History.js"></script>
