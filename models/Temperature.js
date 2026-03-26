@@ -34,7 +34,6 @@ class Temperature {
     setTemperature(nouvelleValeur) {
         this.I_temperature = parseFloat(nouvelleValeur);
 
-        // Mise à jour des Min/Max journaliers (Lot 2)
         if (this.I_temperature < this.minVal) this.minVal = this.I_temperature;
         if (this.I_temperature > this.maxVal) this.maxVal = this.I_temperature;
 
@@ -51,6 +50,8 @@ class Temperature {
         if (this.I_index < this.A_tempArray.length) {
             this.setTemperature(this.A_tempArray[this.I_index]);
             this.I_index++;
+        } else {
+            console.log(`Fin des données pour le capteur ${this.type}`);
         }
     }
 }
