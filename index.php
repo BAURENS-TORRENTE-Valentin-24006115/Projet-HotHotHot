@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="/assets_/css/TD2CompWeb.css">
     <title>Capteur</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 <header class="nav-container">
@@ -31,6 +32,7 @@
         </div>
 
         <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+            <canvas id="donutChart" style="width:100%;max-width:700px"></canvas>
         </div>
 
     </div>
@@ -39,6 +41,7 @@
     <script src="/controllers/Display.js"></script>
     <script src="/controllers/History.js"></script>
     <script src="/controllers/Alert.js"></script>
+    <script src="/controllers/DonutGraph.js"></script>
     <script src="/Main.js" ></script>
     <script src="/controllers/TabsManual.js" ></script>
 </body>

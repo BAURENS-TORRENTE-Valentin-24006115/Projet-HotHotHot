@@ -2,10 +2,12 @@ let O_capteur = new Temperature(20);
 let O_tempDisplay = new Display();
 let O_tempHistory = new History();
 let O_tempAlert = new Alert();
+let O_DonutGraph = new DonutGraph();
 
 O_capteur.addObserver(O_tempDisplay);
 O_capteur.addObserver(O_tempHistory);
 O_capteur.addObserver(O_tempAlert);
+O_capteur.addObserver(O_DonutGraph);
 
 O_capteur.getTemperatureArray();
 O_capteur.getTemperature();
