@@ -1,76 +1,57 @@
+class Temperature {
+    constructor(type, I_qty = 0) {
+        this.type = type;
+        this.I_temperature = 0;
+        this.A_tempArray = [];
+        this.I_index = 0;
+        this.A_observers = [];
 
-class Temperature
-{
-    I_temperature;
-    A_tempArray = [];
-    I_index = 0;
-    A_observers = [];
+        this.minVal = Infinity;
+        this.maxVal = -Infinity;
 
-    constructor(I_qty) {
-        this.setTemperatureArray(I_qty)
-    }
-
-    getTemperatureArray()
-    {
-        return this.A_tempArray
-    }
-
-    setTemperatureArray(I_qty)
-    {
-        for (let I_i = 0; I_i < I_qty; I_i++)
-        {
-            this.A_tempArray.push(Math.floor(Math.random() * 50) - 10);
+        if (I_qty > 0) {
+            this.setTemperatureArray(I_qty);
         }
     }
 
-    getTemperature()
-    {
-        return this.I_temperature;
-    }
-
-    setNextTemperature()
-    {
-        if (this.I_index <= this.getTemperatureArray().length - 1)
-        {
-            this.I_temperature = this.getTemperatureArray()[this.I_index];
-            this.I_index++
-            this.notify();
-            if (this.I_index === this.getTemperatureArray().length)
-            {
-                clearInterval(N_timer);
-            }
-        }
-    }
-
-    getObservers()
-    {
-        return this.A_observers;
-    }
-
-    addObserver(observer)
-    {
+    addObserver(observer) {
         this.A_observers.push(observer);
     }
 
-    removeObserver(observer)
-    {
-        let I_index = 0;
-        for (let currentObserver of this.getObservers())
-        {
-            if (currentObserver === observer)
-            {
-                this.getObservers().splice(I_index, 1);
-            }
+    notify() {
+        const I_data = {
+            type: this.type,
+            valeur: this.I_temperature,
+            min: this.minVal,
+            max: this.maxVal
+        };
 
-            I_index++;
+        for (let observer of this.A_observers) {
+            observer.update(I_data);
         }
     }
 
-    notify()
-    {
-        for (let observer of this.getObservers())
-        {
-            observer.update(this.getTemperature());
+    setTemperature(nouvelleValeur) {
+        this.I_temperature = parseFloat(nouvelleValeur);
+
+        if (this.I_temperature < this.minVal) this.minVal = this.I_temperature;
+        if (this.I_temperature > this.maxVal) this.maxVal = this.I_temperature;
+
+        this.notify();
+    }
+
+    setTemperatureArray(I_qty) {
+        for (let I_i = 0; I_i < I_qty; I_i++) {
+            this.A_tempArray.push(Math.floor(Math.random() * 60) - 10);
+        }
+    }
+
+    setNextTemperature() {
+        if (this.I_index < this.A_tempArray.length) {
+            this.setTemperature(this.A_tempArray[this.I_index]);
+            this.I_index++;
+        } else {
+            console.log(`Fin des données pour le capteur ${this.type}`);
         }
     }
 }
