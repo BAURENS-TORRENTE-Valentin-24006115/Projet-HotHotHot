@@ -1,7 +1,13 @@
 class History
 {
-    update(I_temperature)
+    update(I_data)
     {
-        document.getElementById("tabpanel-2").appendChild(document.createElement("p")).textContent = I_temperature + "°C";
+        const N_val = Number(I_data.valeur);
+        const container = document.getElementById("tabpanel-2");
+        if (container) {
+            const p = document.createElement("p");
+            p.textContent = isFinite(N_val) ? N_val.toFixed(1) + "°C" : "-";
+            container.appendChild(p);
+        }
     }
 }

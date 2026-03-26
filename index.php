@@ -31,7 +31,6 @@
                         <h2 class="titre-capteur">Extérieur</h2>
                         <div class="affichage-temp">
                             <span id="temp-ext-val">--</span>
-                            <span class="unite">°C</span>
                         </div>
                         <div class="stats-jour">
                             <span>Min: <b id="temp-ext-min">--</b>°C</span>
@@ -43,7 +42,6 @@
                         <h2 class="titre-capteur">Intérieur</h2>
                         <div class="affichage-temp">
                             <span id="temp-int-val">--</span>
-                            <span class="unite">°C</span>
                         </div>
                         <div class="stats-jour">
                             <span>Min: <b id="temp-int-min">--</b>°C</span>
