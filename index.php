@@ -5,7 +5,7 @@
 <body>
 <header class="nav-container">
     <nav class="nav">
-        <a href="index.php">Accueil</a>
+        <a href="/index.php">Accueil</a>
         <a href="/views/Documentation.php">Documentation</a>
     </nav>
 </header>
