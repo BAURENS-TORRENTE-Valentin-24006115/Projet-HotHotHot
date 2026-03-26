@@ -30,7 +30,6 @@ class Temperature
 
     setNextTemperature()
     {
-        console.log(this);
         if (this.I_index <= this.getTemperatureArray().length - 1)
         {
             this.I_temperature = this.getTemperatureArray()[this.I_index];
