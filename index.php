@@ -12,8 +12,10 @@
         <a href="#">Déconnexion</a>
     </nav>
 </header>
-    <main>
-        <h1>Tableau de bord</h1>
+<main>
+    <div id="toast-container"></div>
+
+    <h1>Température</h1>
 
         <div class="tabs">
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
