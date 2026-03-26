@@ -106,12 +106,45 @@
 
 }
 
-.nav a{
+.nav a {
     text-decoration: none;
     color: black;
     margin-right: 40px;
 }
 
-.nav a:hover{
+.nav a:hover {
     color: #6a6a6a;
+}
+
+.container-temps-reel {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.colonne-capteur {
+    flex: 1;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-left: 10px ;
+    margin-right: 10px ;
+}
+
+.affichage-temp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 15px 0;
+}
+
+.stats-jour {
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
