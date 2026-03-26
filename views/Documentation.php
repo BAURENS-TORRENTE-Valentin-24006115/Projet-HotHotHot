@@ -3,6 +3,12 @@
     <title>Documentation</title>
 </head>
 <body>
+    <header class="nav-container">
+        <nav class="nav">
+            <a href="index.php">Accueil</a>
+            <a href="/views/Documentation.php">Documentation</a>
+        </nav>
+    </header>
 
     <h1>Documentation</h1>
 
