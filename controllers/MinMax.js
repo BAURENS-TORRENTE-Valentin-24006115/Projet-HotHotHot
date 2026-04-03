@@ -20,11 +20,13 @@ class MinMax
         this.I_max = I_max;
     }
 
-    updateTemp(I_temperature, B_isMin) {
+    updateTemp(I_temperature, B_isMin, S_type) {
         if (B_isMin) {
-            document.getElementById("min").textContent = "Temp min : " + I_temperature + "°C";
+            document.getElementById(S_type + "Min").textContent = "Temp min : " + I_temperature + "°C";
+            document.getElementById(S_type + "MinAcc").textContent = I_temperature;
         } else {
-            document.getElementById("max").textContent = "Temp max : " + I_temperature + "°C";
+            document.getElementById(S_type + "Max").textContent = "Temp max : " + I_temperature + "°C";
+            document.getElementById(S_type + "MaxAcc").textContent = I_temperature;
         }
     }
 
@@ -35,13 +37,13 @@ class MinMax
         if (this.getMin() === null || this.I_temperature < this.getMin())
         {
             this.setMin(this.I_temperature);
-            this.updateTemp(this.I_temperature, true);
+            this.updateTemp(this.I_temperature, true, data.type);
         }
 
         if (this.getMax() === null || this.I_temperature > this.getMax())
         {
             this.setMax(this.I_temperature);
-            this.updateTemp(this.I_temperature, false);
+            this.updateTemp(this.I_temperature, false, data.type);
         }
     }
 }

@@ -23,7 +23,8 @@ class Temperature {
             type: this.type,
             valeur: this.I_temperature,
             min: this.minVal,
-            max: this.maxVal
+            max: this.maxVal,
+            timestamp: 0
         };
 
         for (let observer of this.A_observers) {
@@ -50,8 +51,6 @@ class Temperature {
         if (this.I_index < this.A_tempArray.length) {
             this.setTemperature(this.A_tempArray[this.I_index]);
             this.I_index++;
-        } else {
-            console.log(`Fin des données pour le capteur ${this.type}`);
         }
     }
 }

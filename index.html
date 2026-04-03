@@ -10,8 +10,8 @@
 <header class="nav-container">
     <nav class="nav">
         <a href="index.php">Accueil</a>
-        <a href="#">Documentation</a>
-        <a href="#">Mon compte</a>
+        <a href="/views/Documentation.php">Documentation</a>
+        <a href="/views/Account.php">Mon compte</a>
         <a href="#">Déconnexion</a>
     </nav>
 </header>
@@ -39,8 +39,8 @@
                             <span id="temp-ext-val">--</span>
                         </div>
                         <div class="stats-jour">
-                            <span>Min: <b id="temp-ext-min">--</b>°C</span>
-                            <span>Max: <b id="temp-ext-max">--</b>°C</span>
+                            <span>Min: <b id="exterieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="exterieurMaxAcc">--</b>°C</span>
                         </div>
                     </section>
 
@@ -50,8 +50,8 @@
                             <span id="temp-int-val">--</span>
                         </div>
                         <div class="stats-jour">
-                            <span>Min: <b id="temp-int-min">--</b>°C</span>
-                            <span>Max: <b id="temp-int-max">--</b>°C</span>
+                            <span>Min: <b id="interieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="interieurMaxAcc">--</b>°C</span>
                         </div>
                     </section>
                 </div>
@@ -59,25 +59,47 @@
                 <div id="alert-zone" aria-live="assertive"></div>
             </div>
 
-        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
-            <p>Aujourd'hui :</p>
-            <p id="min" aria-live="assertive">Temp min :</p>
-            <p id="max" aria-live="assertive">Temp max :</p>
-            <canvas id="donutChart" style="width:100%;max-width:700px"></canvas>
-            <br>
-            <p>Tout :</p>
-        </div>
-
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+                <div id="histContainer">
+                    <div id="extHist">
+                        <p>| Extérieur |</p>
+                        <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="exterieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="exterieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="exterieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="intHist">
+                        <p>| Intérieur |</p>
+                        <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="interieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="interieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="interieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </div>
 
-        </div>
     </main>
     <script src="/models/Temperature.js"></script>
     <script src="/controllers/Display.js"></script>
     <script src="/controllers/History.js"></script>
     <script src="/controllers/Alert.js"></script>
+    <script src="/models/WebSocket.js"></script>
     <script src="controllers/MinMax.js"></script>
     <script src="/controllers/DonutGraph.js"></script>
+    <script src="/models/SensorManager.js"></script>
     <script src="/Main.js" ></script>
     <script src="/controllers/TabsManual.js" ></script>
     <script>
