@@ -23,7 +23,8 @@ class Temperature {
             type: this.type,
             valeur: this.I_temperature,
             min: this.minVal,
-            max: this.maxVal
+            max: this.maxVal,
+            timestamp: 0
         };
 
         for (let observer of this.A_observers) {

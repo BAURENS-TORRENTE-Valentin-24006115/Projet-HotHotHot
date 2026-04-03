@@ -5,11 +5,11 @@ class DonutGraph {
     donutChart = null;
     I_temperature;
 
-    updateGraph() {
+    updateGraph(S_type) {
         if (this.donutChart) {
             this.donutChart.update()
         } else {
-            this.donutChart = new Chart("donutChart", {
+            this.donutChart = new Chart(S_type + "DonutChart", {
                 type: "doughnut",
                 data: {
                     labels: this.A_tempLabels,
@@ -21,7 +21,7 @@ class DonutGraph {
                 options: {
                     title: {
                         display: true,
-                        text: "Graphe des températures du jour"
+                        text: "Graphe des températures " + S_type + "es du jour"
                     }
                 }
             });
@@ -44,6 +44,6 @@ class DonutGraph {
             this.A_tempClassValues[3]++;
         }
 
-        this.updateGraph();
+        this.updateGraph(data.type);
     }
 }

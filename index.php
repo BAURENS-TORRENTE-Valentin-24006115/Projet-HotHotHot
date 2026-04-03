@@ -56,18 +56,38 @@
                 <div id="alert-zone" aria-live="assertive"></div>
             </div>
 
-        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
-            <p>Aujourd'hui :</p>
-            <p id="min" aria-live="assertive">Temp min :</p>
-            <p id="max" aria-live="assertive">Temp max :</p>
-            <canvas id="donutChart" style="width:100%;max-width:700px"></canvas>
-            <br>
-            <p>Tout :</p>
-        </div>
-
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+                <div id="histContainer">
+                    <div id="extHist">
+                        <p>| Extérieur |</p>
+                        <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="exterieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="exterieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="exterieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="intHist">
+                        <p>| Intérieur |</p>
+                        <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="interieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="interieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="interieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </div>
 
-        </div>
     </main>
     <script src="/models/Temperature.js"></script>
     <script src="/controllers/Display.js"></script>
