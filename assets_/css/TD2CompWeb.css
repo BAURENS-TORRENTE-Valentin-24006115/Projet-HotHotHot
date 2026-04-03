@@ -202,3 +202,13 @@
 .colonne-capteur .affichage-temp + .sensor-alert {
     display: block;
 }
+
+.tabContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.interieurHist .exterieurHist, th, td {
+    border:1px solid black;
+}

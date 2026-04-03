@@ -9,20 +9,22 @@ window.addEventListener('load', function () {
     O_tempDisplay = new Display();
     O_tempHistory = new History();
     O_tempAlert   = new Alert();
-    let O_DonutGraph = new DonutGraph();
-    let O_tempMinMax = new MinMax();
+    let O_extDonutGraph = new DonutGraph();
+    let O_intDonutGraph = new DonutGraph();
+    let O_intTempMinMax = new MinMax();
+    let O_extTempMinMax = new MinMax();
 
     O_capteurExt.addObserver(O_tempDisplay);
     O_capteurExt.addObserver(O_tempHistory);
     O_capteurExt.addObserver(O_tempAlert);
-    O_capteurExt.addObserver(O_DonutGraph);
-    O_capteurExt.addObserver(O_tempMinMax);
+    O_capteurExt.addObserver(O_extDonutGraph);
+    O_capteurExt.addObserver(O_extTempMinMax);
 
     O_capteurInt.addObserver(O_tempDisplay);
     O_capteurInt.addObserver(O_tempHistory);
     O_capteurInt.addObserver(O_tempAlert);
-    O_capteurInt.addObserver(O_DonutGraph);
-    O_capteurInt.addObserver(O_tempMinMax);
+    O_capteurInt.addObserver(O_intDonutGraph);
+    O_capteurInt.addObserver(O_intTempMinMax);
 
     setInterval(O_capteurExt.setNextTemperature.bind(O_capteurExt), 2000);
     setInterval(O_capteurInt.setNextTemperature.bind(O_capteurInt), 3000);
