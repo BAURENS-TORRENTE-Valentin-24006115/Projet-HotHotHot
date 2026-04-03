@@ -23,8 +23,10 @@ class MinMax
     updateTemp(I_temperature, B_isMin, S_type) {
         if (B_isMin) {
             document.getElementById(S_type + "Min").textContent = "Temp min : " + I_temperature + "°C";
+            document.getElementById(S_type + "MinAcc").textContent = I_temperature;
         } else {
             document.getElementById(S_type + "Max").textContent = "Temp max : " + I_temperature + "°C";
+            document.getElementById(S_type + "MaxAcc").textContent = I_temperature;
         }
     }
 

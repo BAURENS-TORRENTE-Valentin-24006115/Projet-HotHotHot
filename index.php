@@ -36,8 +36,8 @@
                             <span id="temp-ext-val">--</span>
                         </div>
                         <div class="stats-jour">
-                            <span>Min: <b id="temp-ext-min">--</b>°C</span>
-                            <span>Max: <b id="temp-ext-max">--</b>°C</span>
+                            <span>Min: <b id="exterieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="exterieurMaxAcc">--</b>°C</span>
                         </div>
                     </section>
 
@@ -47,8 +47,8 @@
                             <span id="temp-int-val">--</span>
                         </div>
                         <div class="stats-jour">
-                            <span>Min: <b id="temp-int-min">--</b>°C</span>
-                            <span>Max: <b id="temp-int-max">--</b>°C</span>
+                            <span>Min: <b id="interieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="interieurMaxAcc">--</b>°C</span>
                         </div>
                     </section>
                 </div>

@@ -36,7 +36,6 @@ window.addEventListener('load', function () {
     O_capteurInt.addObserver(O_intDonutGraph);
     O_capteurInt.addObserver(O_intTempMinMax);
 
-
     if ("Notification" in window) {
         Notification.requestPermission().then(function(permission) {
             if (permission !== 'granted') {
