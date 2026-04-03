@@ -203,12 +203,12 @@
     display: block;
 }
 
-.tabContainer {
+#histContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.interieurHist .exterieurHist, th, td {
+#interieurHist #exterieurHist, th, td {
     border:1px solid black;
 }

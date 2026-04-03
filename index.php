@@ -27,63 +27,63 @@
                 </button>
             </div>
 
-            <div id="tabContainer">
-                <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
-                    <div class="container-temps-reel">
+            <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="container-temps-reel">
 
-                        <section class="colonne-capteur" id="zone-exterieur">
-                            <h2 class="titre-capteur">Extérieur</h2>
-                            <div class="affichage-temp">
-                                <span id="temp-ext-val">--</span>
-                            </div>
-                            <div class="stats-jour">
-                                <span>Min: <b id="temp-ext-min">--</b>°C</span>
-                                <span>Max: <b id="temp-ext-max">--</b>°C</span>
-                            </div>
-                        </section>
+                    <section class="colonne-capteur" id="zone-exterieur">
+                        <h2 class="titre-capteur">Extérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-ext-val">--</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="temp-ext-min">--</b>°C</span>
+                            <span>Max: <b id="temp-ext-max">--</b>°C</span>
+                        </div>
+                    </section>
 
-                        <section class="colonne-capteur" id="zone-interieur">
-                            <h2 class="titre-capteur">Intérieur</h2>
-                            <div class="affichage-temp">
-                                <span id="temp-int-val">--</span>
-                            </div>
-                            <div class="stats-jour">
-                                <span>Min: <b id="temp-int-min">--</b>°C</span>
-                                <span>Max: <b id="temp-int-max">--</b>°C</span>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div id="alert-zone" aria-live="assertive"></div>
+                    <section class="colonne-capteur" id="zone-interieur">
+                        <h2 class="titre-capteur">Intérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-int-val">--</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="temp-int-min">--</b>°C</span>
+                            <span>Max: <b id="temp-int-max">--</b>°C</span>
+                        </div>
+                    </section>
                 </div>
 
-                <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
-                    <p>Aujourd'hui :</p>
-                    <p>| Extérieur |</p>
-                    <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
-                    <p id="exterieurMax" aria-live="assertive">Temp max :</p>
-                    <p id="exterieurMin" aria-live="assertive">Temp min :</p>
-                    <br>
-                    <p>Historique :</p>
-                    <table id="exterieurHist" style="width:25%">
-                        <tr>
-                            <th>Valeur</th>
-                            <th>Horodatage</th>
-                        </tr>
-                    </table>
-                    <br>
-                    <p>| Intérieur |</p>
-                    <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
-                    <p id="interieurMax" aria-live="assertive">Temp max :</p>
-                    <p id="interieurMin" aria-live="assertive">Temp min :</p>
-                    <br>
-                    <p>Historique :</p>
-                    <table id="interieurHist" style="width:25%">
-                        <tr>
-                            <th>Valeur</th>
-                            <th>Horodatage</th>
-                        </tr>
-                    </table>
+                <div id="alert-zone" aria-live="assertive"></div>
+            </div>
+
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+                <div id="histContainer">
+                    <div id="extHist">
+                        <p>| Extérieur |</p>
+                        <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="exterieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="exterieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="exterieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="intHist">
+                        <p>| Intérieur |</p>
+                        <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="interieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="interieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="interieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
     </div>
