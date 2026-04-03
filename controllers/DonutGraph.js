@@ -7,7 +7,8 @@ class DonutGraph {
 
     updateGraph(S_type) {
         if (this.donutChart) {
-            this.donutChart.update()
+            this.donutChart.data.datasets[0].data = this.A_tempClassValues;
+            this.donutChart.update();
         } else {
             this.donutChart = new Chart(S_type + "DonutChart", {
                 type: "doughnut",

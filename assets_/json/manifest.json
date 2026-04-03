@@ -1,0 +1,27 @@
+{
+    "name": "HotHotHot - Surveillance Capteurs",
+    "short_name": "HotHotHot",
+    "description": "Surveillance en temps réel de capteurs de température via WebSocket.",
+    "start_url": "../../index.php",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "../img/icon/tosvg.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "../img/icon/192fav.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "../img/icon/512fav.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,5 +1,8 @@
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets_/css/TD2CompWeb.css">
+    <link rel="manifest" href="assets_/json/manifest.json">
+    <link rel="apple-touch-icon" href= "assets_/img/icon/180fav.png">
     <title>Capteur</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
@@ -99,4 +102,14 @@
     <script src="/models/SensorManager.js"></script>
     <script src="/Main.js" ></script>
     <script src="/controllers/TabsManual.js" ></script>
+    <script>
+    if ('serviceWorker' in navigator) 
+    {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker enregistré !', reg))
+            .catch(err => console.log('Erreur SW :', err));
+        });
+    }
+</script>
 </body>
