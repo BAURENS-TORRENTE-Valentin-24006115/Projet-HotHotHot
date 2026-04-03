@@ -7,8 +7,8 @@
 <header class="nav-container">
     <nav class="nav">
         <a href="index.php">Accueil</a>
-        <a href="#">Documentation</a>
-        <a href="#">Mon compte</a>
+        <a href="/views/Documentation.php">Documentation</a>
+        <a href="/views/Account.php">Mon compte</a>
         <a href="#">Déconnexion</a>
     </nav>
 </header>
