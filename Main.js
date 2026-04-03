@@ -14,6 +14,11 @@ let N_timer = setInterval(O_capteur.setNextTemperature.bind(O_capteur), 2000);
 
 'use strict';
 
+let webSocket = new WebSocketHandler('wss://ws.hothothot.dog:9502');
+webSocket.connect();
+webSocket.notifyObservers()
+
+
 window.addEventListener('load', function () {
     const A_tablists = document.querySelectorAll('[role=tablist].manual');
     for (let I_i = 0; I_i < A_tablists.length; I_i++) {

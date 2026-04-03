@@ -74,4 +74,6 @@ class Temperature
             observer.update(this.getTemperature());
         }
     }
+
+
 }
