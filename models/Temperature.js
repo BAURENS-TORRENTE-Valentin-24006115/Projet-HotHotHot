@@ -1,4 +1,5 @@
 class Temperature {
+    S_timestamp;
     constructor(type, I_qty = 0) {
         this.type = type;
         this.I_temperature = 0;
@@ -22,9 +23,10 @@ class Temperature {
         const I_data = {
             type: this.type,
             valeur: this.I_temperature,
+            horodatage: this.S_timestamp,
             min: this.minVal,
             max: this.maxVal,
-            timestamp: 0
+            timestamp: this.S_timestamp
         };
 
         for (let observer of this.A_observers) {
@@ -32,8 +34,9 @@ class Temperature {
         }
     }
 
-    setTemperature(nouvelleValeur) {
+    setTemperature(nouvelleValeur, horodatage) {
         this.I_temperature = parseFloat(nouvelleValeur);
+        this.S_timestamp = horodatage;
 
         if (this.I_temperature < this.minVal) this.minVal = this.I_temperature;
         if (this.I_temperature > this.maxVal) this.maxVal = this.I_temperature;

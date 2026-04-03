@@ -10,7 +10,7 @@ class SensorManager {
     updateFromWebSocket(capteurs) {
         capteurs.forEach(capteur => {
             if (this.sensors[capteur.Nom]) {
-                this.sensors[capteur.Nom].setTemperature(capteur.Valeur);
+                this.sensors[capteur.Nom].setTemperature(capteur.Valeur, new Date(capteur.Timestamp * 1000));
             }
         });
     }
