@@ -51,8 +51,6 @@ class Temperature {
         if (this.I_index < this.A_tempArray.length) {
             this.setTemperature(this.A_tempArray[this.I_index]);
             this.I_index++;
-        } else {
-            console.log(`Fin des données pour le capteur ${this.type}`);
         }
     }
 }

@@ -93,8 +93,10 @@
     <script src="/controllers/Display.js"></script>
     <script src="/controllers/History.js"></script>
     <script src="/controllers/Alert.js"></script>
+    <script src="/models/WebSocket.js"></script>
     <script src="controllers/MinMax.js"></script>
     <script src="/controllers/DonutGraph.js"></script>
+    <script src="/models/SensorManager.js"></script>
     <script src="/Main.js" ></script>
     <script src="/controllers/TabsManual.js" ></script>
 </body>
