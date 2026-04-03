@@ -1,8 +1,10 @@
 'use strict';
 
+let sensorManager = new SensorManager();
 let webSocket = new WebSocketHandler('wss://ws.hothothot.dog:9502');
+webSocket.addObserver(sensorManager);
 webSocket.connect();
-webSocket.notifyObservers()
+webSocket.notifyObservers();
 
 
 let O_capteurExt, O_capteurInt, O_tempDisplay, O_tempHistory, O_tempAlert;
@@ -10,6 +12,9 @@ let O_capteurExt, O_capteurInt, O_tempDisplay, O_tempHistory, O_tempAlert;
 window.addEventListener('load', function () {
     O_capteurExt = new Temperature("exterieur", 20);
     O_capteurInt = new Temperature("interieur", 20);
+
+    sensorManager.registerSensor("exterieur", O_capteurExt);
+    sensorManager.registerSensor("interieur", O_capteurInt);
 
     O_tempDisplay = new Display();
     O_tempHistory = new History();
@@ -29,8 +34,6 @@ window.addEventListener('load', function () {
     O_capteurInt.addObserver(O_DonutGraph);
     O_capteurInt.addObserver(O_tempMinMax);
 
-    setInterval(O_capteurExt.setNextTemperature.bind(O_capteurExt), 2000);
-    setInterval(O_capteurInt.setNextTemperature.bind(O_capteurInt), 3000);
 
     if ("Notification" in window) {
         Notification.requestPermission().then(function(permission) {

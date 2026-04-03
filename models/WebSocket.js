@@ -10,15 +10,14 @@ class WebSocketHandler {
 
         this.socket.onopen = () => {
             console.log('WebSocket connection established');
-        };
-
-        this.socket.onmessage = (event) => {
-            console.log('Message received:', event.data);
+            this.sendMessage("Hello Server!");
         };
 
         this.socket.onclose = () => {
             console.log('WebSocket connection closed');
+            this.connect();
         };
+
     }
 
     sendMessage(message) {
@@ -48,8 +47,14 @@ class WebSocketHandler {
 
     notifyObservers() {
         this.socket.addEventListener("message", (event) => {
-            console.log("Voici un message du serveur", event.data);
-            this.A_observers.forEach(observer => observer.update(event.data));
+            try {
+                const data = JSON.parse(event.data);
+                if (data.capteurs && Array.isArray(data.capteurs)) {
+                    this.A_observers.forEach(observer => observer.updateFromWebSocket(data.capteurs));
+                }
+            } catch (error) {
+                console.error('Error parsing WebSocket message:', error);
+            }
         });
     }
 }
