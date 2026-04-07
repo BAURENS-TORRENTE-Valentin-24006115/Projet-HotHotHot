@@ -212,3 +212,19 @@
 #interieurHist #exterieurHist, th, td {
     border:1px solid black;
 }
+
+#installApp {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#installApp:hover {
+    background-color: #e03e00;
+}

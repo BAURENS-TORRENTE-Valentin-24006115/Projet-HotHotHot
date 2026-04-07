@@ -10,9 +10,10 @@
 <header class="nav-container">
     <nav class="nav">
         <a href="index.php">Accueil</a>
-        <a href="/views/Documentation.php">Documentation</a>
-        <a href="/views/Account.php">Mon compte</a>
+        <a href="views/Documentation.php">Documentation</a>
+        <a href="views/Account.php">Mon compte</a>
         <a href="#">Déconnexion</a>
+        <button id="installApp" style="display: none">Installer l'application</button>
     </nav>
 </header>
 <main>
@@ -102,14 +103,5 @@
     <script src="/models/SensorManager.js"></script>
     <script src="/Main.js" ></script>
     <script src="/controllers/TabsManual.js" ></script>
-    <script>
-    if ('serviceWorker' in navigator) 
-    {
-        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('Service Worker enregistré !', reg))
-            .catch(err => console.log('Erreur SW :', err));
-        });
-    }
-</script>
+    <script src="/controllers/PwaHandler.js"></script>
 </body>
