@@ -72,11 +72,16 @@
         <br>
     </p>
 
-    <h2>Si l'on devrait recommencé...</h2>
+    <h2>Si l'on devrait recommencer...</h2>
     <p>
-        Si l'on devrait recommencé le projet, nous pourrions envisager les améliorations suivantes :
-        TEMP
+        Si l'on devrait recommencer le projet, nous pourrions envisager les améliorations suivantes :
+
     </p>
+    <ul>
+        <li>Améliorer l'interface utilisateur pour la rendre plus intuitive et attrayante.</li>
+        <li>Faire le certificat https plus tot plutôt que de perdre du temps en plein milieu du projet.</li>
+        <li>Optimiser le code pour améliorer les performances et la maintenabilité.</li>
+    </ul>
 
 
     <script src="/models/Temperature.js"></script>
