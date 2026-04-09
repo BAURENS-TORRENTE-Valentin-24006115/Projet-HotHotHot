@@ -63,7 +63,7 @@
             <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
                 <div id="histContainer">
                     <div id="extHist">
-                        <p>| Extérieur |</p>
+                        <p class="pTemp">Extérieur</p>
                         <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
                         <p id="exterieurMax" aria-live="assertive">Temp max :</p>
                         <p id="exterieurMin" aria-live="assertive">Temp min :</p>
@@ -76,7 +76,7 @@
                         </table>
                     </div>
                     <div id="intHist">
-                        <p>| Intérieur |</p>
+                        <p class="pTemp">Intérieur</p>
                         <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
                         <p id="interieurMax" aria-live="assertive">Temp max :</p>
                         <p id="interieurMin" aria-live="assertive">Temp min :</p>
