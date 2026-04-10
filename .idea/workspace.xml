@@ -7,9 +7,6 @@
     <list default="true" id="41c9ddc7-6b39-4fa0-8e9a-f9626c79146e" name="Changes" comment="FEAT: Add graph">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets_/css/TD2CompWeb.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets_/css/TD2CompWeb.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Documentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Documentation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +135,8 @@
       <workItem from="1774520074789" duration="2244000" />
       <workItem from="1775197695536" duration="1417000" />
       <workItem from="1775758606567" duration="837000" />
-      <workItem from="1775759540193" duration="3659000" />
+      <workItem from="1775759540193" duration="4876000" />
+      <workItem from="1775838982937" duration="678000" />
     </task>
     <task id="LOCAL-00001" summary="Base project upload">
       <option name="closed" value="true" />
