@@ -64,11 +64,11 @@
         <p class="doc-text">
             <strong class="doc-highlight">Probleme:</strong>
             <br>
-            TEMP
+            La classe Websocket ne pouvais pas directement update les autres classes
             <br><br>
             <strong class="doc-highlight">Solution:</strong>
             <br>
-            TEMP
+            Création du classes SensorManager qui recois les update du websocket et qui les appliques a l'affichage.
             <br>
         </p>
 
