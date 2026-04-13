@@ -1,34 +1,107 @@
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets_/css/TD2CompWeb.css">
+    <link rel="manifest" href="assets_/json/manifest.json">
+    <link rel="apple-touch-icon" href= "assets_/img/icon/180fav.png">
     <title>Capteur</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
+<header class="nav-container">
+    <nav class="nav">
+        <a href="index.php">Accueil</a>
+        <a href="views/Documentation.php">Documentation</a>
+        <a href="views/Account.php">Mon compte</a>
+        <a href="#">Déconnexion</a>
+        <button id="installApp" style="display: none">Installer l'application</button>
+    </nav>
+</header>
+<main>
+    <div id="toast-container"></div>
+
     <h1>Température</h1>
-    <div class="tabs">
-        <div role="tablist" aria-labelledby="tablist-1" class="manual">
-            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
-                <span class="focus">Actuelle</span>
-            </button>
-            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
-                <span class="focus">Historique</span>
-            </button>
-        </div>
 
-        <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
-            <section>
-                <p id="value" aria-live="assertive"></p>
-                <p id="message" role="alert"></p>
-            </section>
-        </div>
-        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+        <div class="tabs">
+            <div role="tablist" aria-labelledby="tablist-1" class="manual">
+                <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                    <span class="focus">Temps réels</span>
+                </button>
+                <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
+                    <span class="focus">Historique</span>
+                </button>
+            </div>
 
-        </div>
+            <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="container-temps-reel">
+
+                    <section class="colonne-capteur" id="zone-exterieur">
+                        <h2 class="titre-capteur">Extérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-ext-val">--</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="exterieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="exterieurMaxAcc">--</b>°C</span>
+                        </div>
+                    </section>
+
+                    <section class="colonne-capteur" id="zone-interieur">
+                        <h2 class="titre-capteur">Intérieur</h2>
+                        <div class="affichage-temp">
+                            <span id="temp-int-val">--</span>
+                        </div>
+                        <div class="stats-jour">
+                            <span>Min: <b id="interieurMinAcc">--</b>°C</span>
+                            <span>Max: <b id="interieurMaxAcc">--</b>°C</span>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="alert-zone" aria-live="assertive"></div>
+            </div>
+
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+                <div id="histContainer">
+                    <div id="extHist">
+                        <p class="pTemp">Extérieur</p>
+                        <canvas id="exterieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="exterieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="exterieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="exterieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="intHist">
+                        <p class="pTemp">Intérieur</p>
+                        <canvas id="interieurDonutChart" style="width:100%;max-width:700px"></canvas>
+                        <p id="interieurMax" aria-live="assertive">Temp max :</p>
+                        <p id="interieurMin" aria-live="assertive">Temp min :</p>
+                        <p>Historique :</p>
+                        <table id="interieurHist" style="width:25%">
+                            <tr>
+                                <th>Valeur</th>
+                                <th>Horodatage</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </div>
 
-    <script src="/assets_/js/Temperature.js"></script>
-    <script src="/assets_/js/Display.js"></script>
-    <script src="/assets_/js/History.js"></script>
-    <script src="/assets_/js/Alert.js"></script>
-    <script src="/assets_/js/Main.js" ></script>
-    <script src="/assets_/js/TabsManual.js" ></script>
+    </main>
+    <script src="/models/Temperature.js"></script>
+    <script src="/controllers/Display.js"></script>
+    <script src="/controllers/History.js"></script>
+    <script src="/controllers/Alert.js"></script>
+    <script src="/models/WebSocket.js"></script>
+    <script src="controllers/MinMax.js"></script>
+    <script src="/controllers/DonutGraph.js"></script>
+    <script src="/models/SensorManager.js"></script>
+    <script src="/Main.js" ></script>
+    <script src="/controllers/TabsManual.js" ></script>
+    <script src="/controllers/PwaHandler.js"></script>
 </body>
